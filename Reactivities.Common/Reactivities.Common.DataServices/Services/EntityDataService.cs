@@ -1,17 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Reactivities.Common.DataServices.Abstractions.Interfaces;
 using Reactivities.Common.DataServices.ErrorHandling;
-using Reactivities.Common.DataServices.Interfaces;
 using Reactivities.Common.ErrorHandling.Models;
 
 namespace Reactivities.Common.DataServices.Services;
 
-public class EntityDataService<TDomainEntity> : IEntityDataService<DbContext,TDomainEntity>
-    where TDomainEntity : class, new ()
+public class EntityDataService<TDbContext, TDomainEntity> : IEntityDataService<TDomainEntity>
+    where TDomainEntity : class
+    where TDbContext : DbContext
 {
-    protected readonly DbContext DataContext;
+    protected readonly TDbContext DataContext;
     protected readonly DbSet<TDomainEntity> DataSet;
 
-    public EntityDataService(DbContext dataContext)
+    public EntityDataService(TDbContext dataContext)
     {
         this.DataContext = dataContext;
         this.DataSet = dataContext.Set<TDomainEntity>();

@@ -1,7 +1,7 @@
-﻿namespace Reactivities.Common.DataServices.Interfaces;
+﻿namespace Reactivities.Common.DataServices.Abstractions.Interfaces;
 
-public interface IEntityDataService<DbContext, TDomainEntity>
-    where TDomainEntity : class, new ()
+public interface IEntityDataService<TDomainEntity>
+    where TDomainEntity : class
 {
     public IQueryable<TDomainEntity> GetAsQueryable();
 

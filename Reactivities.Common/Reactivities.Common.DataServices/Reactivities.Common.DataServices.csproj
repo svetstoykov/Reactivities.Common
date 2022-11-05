@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Reactivities.Common.DataServices.Abstractions\Reactivities.Common.DataServices.Abstractions.csproj" />
       <ProjectReference Include="..\Reactivities.Common.ErrorHandling\Reactivities.Common.ErrorHandling.csproj" />
     </ItemGroup>
 
