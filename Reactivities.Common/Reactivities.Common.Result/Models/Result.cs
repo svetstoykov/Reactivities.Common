@@ -4,7 +4,10 @@ namespace Reactivities.Common.Result.Models;
 
 public class Result<T>
 {
-    private Result(T data, ResultType type, bool isSuccessful = false, string message = null)
+    public Result()
+    { }
+
+    public Result(T data, ResultType type, bool isSuccessful = false, string message = null)
     {
         this.Data = data;
         this.ResultType = type;
@@ -12,13 +15,13 @@ public class Result<T>
         this.IsSuccessful = isSuccessful;
     }
 
-    public bool IsSuccessful { get; private set; }
+    public bool IsSuccessful { get; set; }
 
-    public T Data { get; private set; }
+    public T Data { get; set; }
 
-    public string Message { get; private set; }
+    public string Message { get; set; }
 
-    public ResultType ResultType { get; private set; }
+    public ResultType ResultType { get; set; }
 
     public static Result<T> Success(T data, string message = null) => new(data, ResultType.Success, true, message);
 
